@@ -149,9 +149,9 @@ def run_module():
             elif row == 'Node Attributes:':
                 property_type = 'node'
             else:
-                if pcs_version in ['0.9', '0.10']:
+                if pcs_version in ['0.9', '0.10', '0.11']:
                     delimiter = ':'
-                elif pcs_version in ['0.11', '0.12']:
+                elif pcs_version in ['0.12']:
                     delimiter = '='
 
                 # when identifier of section is not preset we are at the property
