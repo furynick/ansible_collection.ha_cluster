@@ -163,7 +163,7 @@ def get_crm_data(module):
 def run_module():
     module = AnsibleModule(
         argument_spec=dict(
-            state=dict(default="present", choices=['present', 'absent', 'Started', 'Stopped', 'Master', 'Slave', 'Unpromoted', 'Promoted']),
+            state=dict(default="present", choices=['present', 'absent', 'Started', 'Stopped', 'Master', 'Slave']),
             resource=dict(required=True),
             delay=dict(type='int', default=0),
             timeout=dict(type='int', default=60),
