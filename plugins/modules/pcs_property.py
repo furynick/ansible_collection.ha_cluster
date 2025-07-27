@@ -141,6 +141,7 @@ def run_module():
         property_type = None
         properties['cluster'] = {}
         properties['node'] = {}
+        delimiter = '=' if out.count('=') >= out.count('\n') - 2 else ':'
         # we are stripping last line as they doesn't contain properties
         for row in out.split('\n')[0:-1]:
             # based on row we see the section to either cluster or node properties
@@ -149,11 +150,6 @@ def run_module():
             elif row == 'Node Attributes:':
                 property_type = 'node'
             else:
-                if pcs_version in ['0.9', '0.10', '0.11']:
-                    delimiter = ':'
-                elif pcs_version in ['0.12']:
-                    delimiter = '='
-
                 # when identifier of section is not preset we are at the property
                 tmp = row.lstrip().split(delimiter)
                 if property_type == 'cluster':
